@@ -1,0 +1,2 @@
+python-docx
+pyttsx3
