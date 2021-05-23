@@ -19,7 +19,7 @@ def speak(text):
 document = Document()
 
 # ADDING PICTURE
-document.add_picture('cv_pic.jpg', width=Inches(1.5))
+document.add_picture('cv_pic.jpg', width=Inches(1.3))
 
 # TAKING INPUT FROM USER
 name = input('What is your name? ')
@@ -43,7 +43,7 @@ from_date = input('From date: ')
 to_date = input('To date: ')
 # ADD DATA TO EXISTING PARAGRAPHS
 p.add_run(company + ' ').bold = True  # BOLD
-p.add_run(from_date + ' - ' + to_date + '\n').italic = True  # ITALIC
+p.add_run('(' + from_date + ' - ' + to_date + ')' + '\n').italic = True  # ITALIC
 
 experience_details = input(f'Describe your experience at {company}: ')
 p.add_run(experience_details)
@@ -58,7 +58,7 @@ while True:
         to_date = input('To date: ')
         # ADD DATA TO EXISTING PARAGRAPHS
         p.add_run(company + ' ').bold = True  # BOLD
-        p.add_run(from_date + ' - ' + to_date + '\n').italic = True  # ITALIC
+        p.add_run('(' + from_date + ' - ' + to_date + ')' + '\n').italic = True  # ITALIC
 
         experience_details = input(f'Describe your experience at {company}: ')
         p.add_run(experience_details)
@@ -66,6 +66,8 @@ while True:
         break
 
 # SKILLS
+# USE EITHER OF THE TWO, KEEP OTHER COMMENTED
+# 1 - TAKING SKILLS INDIVIDUALLY
 document.add_heading('Skills')
 skill = input('Enter your skill: ')
 p = document.add_paragraph(skill)
@@ -79,6 +81,16 @@ while True:
         p.style = 'List Bullet'  # LIST AS BULLET POINTS
     else:
         break
+# 1 - END
+
+# 2 - TAKING SKILLS AS COMMA SEPARATED VALUES
+# skills_user = input('Enter your skills as comma separated values: ')
+# skills = skills_user.split(',')  # SPLIT ON COMMA DELIMITER
+# for skill in skills:  # LOOPING THROUGH EACH SKILL
+#     p = document.add_paragraph(skill)
+#     p.style = 'List Bullet'
+# 2 - END
+
 
 # FOOTER
 section = document.sections[0]  # GRAB A SECTION
